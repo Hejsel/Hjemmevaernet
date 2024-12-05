@@ -28,7 +28,6 @@ For at vise headeren skal du tilføje et tomt HTML-element med id'et **`header`*
 
 ```html
 <header id="header"></header>
-<!-- Header container -->
 ```
 
 ### 2. Link til de nødvendige filer i dit HTML dokumnet
