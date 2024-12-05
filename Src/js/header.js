@@ -12,7 +12,7 @@ async function loadHeader() {
     const html = await response.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
-    const header = doc.querySelector("#header-wrapper");
+    const header = doc.querySelector("#headerElements");
     document.querySelector("#header").innerHTML = header.innerHTML;
   } catch (err) {
     console.error("Kunne ikke hente headeren", err);
@@ -20,7 +20,7 @@ async function loadHeader() {
 }
 // Header box-shadow on scroll
 function scrollEvent() {
-  const header = document.getElementById("header");
+  const header = document.getElementById("header__container");
   if (!header) {
     console.warn("Navbar element ikke fundet!");
     return;
