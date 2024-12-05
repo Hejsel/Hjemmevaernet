@@ -22,7 +22,7 @@ async function loadHeader() {
 function scrollEvent() {
   const header = document.getElementById("header__container");
   if (!header) {
-    console.warn("Navbar element ikke fundet!");
+    console.warn("Header element ikke fundet!");
     return;
   }
   document.addEventListener("scroll", () => {
