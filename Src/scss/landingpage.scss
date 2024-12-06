@@ -1,3 +1,69 @@
-body {
-	background-color: aqua;
+@import 'variables';
+@import 'mixins';
+
+main {
+	margin: $main-margin;
+	@include flex-container;
+	#hero {
+		@include flex-container(column, 3.125rem);
+		@include flex-align(center, center);
+		.container {
+			@include flex-container(column, 0.625rem);
+			@include flex-align(center, center);
+			h1,
+			p {
+				max-width: 70%;
+				text-align: center;
+			}
+			button {
+				margin-top: 2.5rem;
+			}
+		}
+		img {
+			max-width: 60%;
+			width: 100%;
+			aspect-ratio: 1.618 / 1;
+			background-color: darkgray;
+		}
+	}
+	#get-it-going {
+		@include flex-container(column, 3.125rem);
+		@include flex-align(center, center);
+		.container {
+			@include flex-align(center, center);
+			flex-direction: column;
+			h2,
+			p {
+				max-width: 70%;
+				text-align: center;
+			}
+		}
+		.wrapper {
+			@include flex-wrapper;
+			@include flex-align(center, center);
+			gap: 0.625rem;
+			max-width: 71.25rem;
+			.card-step-by-step {
+				@include flex-container(column, 1.25rem);
+				padding: $card-padding;
+				max-width: 24.625rem;
+				background-color: $fmn-10-procent;
+				img {
+					aspect-ratio: 16 / 9;
+					background-color: darkgrey;
+				}
+				.card-text-box {
+					@include flex-container(column, 0.625rem);
+					flex-direction: row;
+					b {
+						position: relative;
+						top: 0;
+					}
+					p {
+						margin-top: 0;
+					}
+				}
+			}
+		}
+	}
 }
