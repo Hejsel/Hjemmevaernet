@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../dist/style/resource.css" />
+    <script src="../Src/js/resource.js"></script>
     <!-- lagt disse 2 links ind nedenfor. -->
     <link rel="stylesheet" href="/dist/style/global.css" />
     <script src="/Src/js/header.js" defer></script>
@@ -27,17 +28,17 @@
       <section id="emne">
         <h3>Emne</h3>
         <form id="emneBokse">
-          <label> <input type="checkbox" class="checkbox-input" /> Guides </label>
+          <label> <input type="checkbox" class="checkbox-input" /> Instruktør </label>
           <label> <input type="checkbox" class="checkbox-input" /> Undervisningsbøger </label>
-          <label> <input type="checkbox" class="checkbox-input" /> Hærhjemmeværnet </label>
-          <label> <input type="checkbox" class="checkbox-input" /> Flyverhjemmeværnet </label>
+          <label> <input type="checkbox" class="checkbox-input" /> Hæren </label>
+          <label> <input type="checkbox" class="checkbox-input" /> Didaktiske designprincipper</label>
         </form>
         <hr />
         <a href="" id="buttons">Ryd filter</a>
       </section>
 
       <section id="boger">
-        <div id="bog">
+        <div id="bog" data-category="Didaktiske designprincipper,Undervisningsbøger">
           <img
             id="imgSize"
             src="../Src/Assets/Img/Skærmbillede 2024-12-03 kl. 10.35.07.png"
@@ -57,7 +58,7 @@
           </div>
         </div>
         <hr />
-        <div id="bog">
+        <div id="bog" data-category="Hæren,Undervisningsbøger">
           <img
             id="imgSize"
             src="../Src/Assets/Img/Skærmbillede 2024-12-03 kl. 10.35.07.png"
@@ -75,7 +76,7 @@
           </div>
         </div>
         <hr />
-        <div id="bog">
+        <div id="bog" data-category="Undervisningsbøger,Instruktør">
           <img
             id="imgSize"
             src="../Src/Assets/Img/Skærmbillede 2024-12-03 kl. 10.35.07.png"
@@ -93,7 +94,7 @@
           </div>
         </div>
         <hr />
-        <div id="bog">
+        <div id="bog" data-category="Undervisningsbøger,Instruktør">
           <img
             id="imgSize"
             src="../Src/Assets/Img/Skærmbillede 2024-12-03 kl. 10.35.07.png"
