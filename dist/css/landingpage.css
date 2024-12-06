@@ -1,5 +1,98 @@
-body {
-  background-color: aqua;
+@charset "UTF-8";
+/* Der bruges følgende gap værdiger
+    80px = 5rem
+    31px = 1.938rem
+    20px = 1.25rem
+    10px = 0.625rem
+*/
+main {
+  margin: 3.125rem 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+main #hero {
+  display: flex;
+  flex-direction: column;
+  gap: 3.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #hero .container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #hero .container h1,
+main #hero .container p {
+  max-width: 70%;
+  text-align: center;
+}
+main #hero .container button {
+  margin-top: 2.5rem;
+}
+main #hero img {
+  max-width: 60%;
+  width: 100%;
+  aspect-ratio: 1.618/1;
+  background-color: darkgray;
+}
+main #get-it-going {
+  display: flex;
+  flex-direction: column;
+  gap: 3.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #get-it-going .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+main #get-it-going .container h2,
+main #get-it-going .container p {
+  max-width: 70%;
+  text-align: center;
+}
+main #get-it-going .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  max-width: 71.25rem;
+}
+main #get-it-going .wrapper .card-step-by-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem 1.25rem 3.125rem;
+  max-width: 24.625rem;
+  background-color: rgba(63, 91, 83, 0.1);
+}
+main #get-it-going .wrapper .card-step-by-step img {
+  aspect-ratio: 16/9;
+  background-color: darkgrey;
+}
+main #get-it-going .wrapper .card-step-by-step .card-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  flex-direction: row;
+}
+main #get-it-going .wrapper .card-step-by-step .card-text-box b {
+  position: relative;
+  top: 0;
+}
+main #get-it-going .wrapper .card-step-by-step .card-text-box p {
+  margin-top: 0;
 }
 
 /*# sourceMappingURL=landingpage.css.map */

@@ -1,0 +1,65 @@
+// Flex gap
+/* Der bruges følgende gap værdiger
+    80px = 5rem
+    31px = 1.938rem
+    20px = 1.25rem
+    10px = 0.625rem
+*/
+@mixin flex-container($retning: column, $gap: 5rem) {
+	display: flex;
+	flex-direction: $retning;
+	gap: $gap;
+}
+
+// Flex potitions
+@mixin flex-align($justify: center, $align: null) {
+	display: flex;
+	justify-content: $justify;
+
+	// Inkluder kun align-items, hvis $align ikke er null
+	@if $align != null {
+		align-items: $align;
+	}
+}
+
+@mixin flex-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+// Padding
+@mixin padding-standard($top: 2rem, $side: 1rem) {
+	padding: $top $side;
+}
+@mixin responsiv-padding($top: 2rem, $side: 1rem) {
+	padding: $top $side;
+
+	@media (max-width: $mobile-max-size) {
+		padding: $top / 2 $side / 2;
+	}
+}
+
+// Media breakpoints
+@mixin screen-size($size) {
+	@if $size == mobile {
+		@media (max-width: $mobile-max-size) {
+			// 743px
+			@content;
+		}
+	} @else if $size == tablet-small {
+		@media (min-width: $tablet-small-min-size) and (max-width: $tablet-big-min-size) {
+			// 744px til 1024px
+			@content;
+		}
+	} @else if $size == tablet-big {
+		@media (min-width: $tablet-big-min-size) and (max-width: $desktop-min-size) {
+			// 1024px til 1200px
+			@content;
+		}
+	} @else if $size == desktop {
+		@media (min-width: $desktop-min-size) {
+			// 1200px
+			@content;
+		}
+	}
+}
