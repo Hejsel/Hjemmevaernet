@@ -1,15 +1,140 @@
-@charset "UTF-8";
-/* Der bruges følgende gap værdiger
-    80px = 5rem
-    31px = 1.938rem
-    20px = 1.25rem
-    10px = 0.625rem
-*/
+.btn-main-cta {
+  background-color: #8d1b3d;
+  color: #fff;
+  margin-top: 1.938rem;
+  padding: 0.625rem 0.938rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+.btn-main-cta:hover {
+  background-color: #3f5b58;
+}
+@media (width <= 46.5rem) {
+  .btn-main-cta {
+    font-size: 0.625rem;
+  }
+}
+
+.card-step-by-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem 1.25rem 3.125rem;
+  max-width: 24.625rem;
+  background-color: rgba(63, 91, 83, 0.1);
+}
+.card-step-by-step img {
+  aspect-ratio: 16/9;
+  background-color: darkgrey;
+}
+.card-step-by-step .card-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  flex-direction: row;
+}
+.card-step-by-step .card-text-box b {
+  position: static;
+  top: 0;
+  color: #8d1b3d;
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+}
+.card-step-by-step .card-text-box p {
+  margin-top: 0;
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+}
+
+.full-bleed {
+  box-shadow: 0 0 0 100vmax rgba(63, 91, 83, 0.1);
+  clip-path: inset(0 -100vmax);
+}
+
+.h1-style {
+  min-width: 17.5rem;
+  text-align: center;
+  font-size: clamp(1.37rem, 5vw, 2.706rem);
+  line-height: 1.5;
+  letter-spacing: -0.013rem;
+  margin: 0 1.25rem;
+}
+
+.h2-style {
+  min-width: 17.5rem;
+  text-align: center;
+  font-size: clamp(1.76471rem, 5vw, 2.353rem);
+  line-height: 1.5;
+  letter-spacing: -0.025rem;
+  margin: 0 1.25rem;
+}
+
+#examples-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.938rem;
+  list-style: none;
+  max-width: 50rem;
+  padding: 0;
+}
+#examples-list .examples-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+  background-color: #3f5b58;
+  padding: 1.25rem 1.25rem 3.125rem;
+  color: #fff;
+}
+
+.body-text-center {
+  min-width: 17.5rem;
+  text-align: center;
+  max-width: 60%;
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+}
+
+body {
+  font-family: "Verdana, Geneva, Tahoma, sans-serif";
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  list-style-type: disc;
+}
+
 main {
-  margin: 3.125rem 0.625rem;
+  margin-top: clamp(8.313rem, 5vw, 9.875rem);
+  margin-right: 0.625rem;
+  margin-bottom: 0;
+  margin-left: 0.625rem;
   display: flex;
   flex-direction: column;
   gap: 5rem;
+}
+@media (width >= 46.5rem) and (width <= 64rem) {
+  main {
+    gap: 3.125rem;
+  }
+}
+@media (width <= 46.5rem) {
+  main {
+    gap: 3.125rem;
+  }
 }
 main #hero {
   display: flex;
@@ -24,22 +149,27 @@ main #hero .container {
   flex-direction: column;
   gap: 0.625rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
-main #hero .container h1,
-main #hero .container p {
-  max-width: 70%;
-  text-align: center;
-}
-main #hero .container button {
-  margin-top: 2.5rem;
-}
 main #hero img {
-  max-width: 60%;
+  max-width: 52%;
+  min-width: 50.2rem;
   width: 100%;
   aspect-ratio: 1.618/1;
   background-color: darkgray;
+}
+@media (width >= 46.5rem) and (width <= 64rem) {
+  main #hero img {
+    max-width: 80%;
+    min-width: 46.875rem;
+  }
+}
+@media (width <= 46.5rem) {
+  main #hero img {
+    max-width: 100%;
+    min-width: 0;
+  }
 }
 main #get-it-going {
   display: flex;
@@ -55,44 +185,29 @@ main #get-it-going .container {
   align-items: center;
   flex-direction: column;
 }
-main #get-it-going .container h2,
-main #get-it-going .container p {
-  max-width: 70%;
-  text-align: center;
-}
-main #get-it-going .wrapper {
+main #get-it-going #step-by-step-list {
   display: flex;
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
-  max-width: 71.25rem;
 }
-main #get-it-going .wrapper .card-step-by-step {
+main #examples {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  padding: 1.25rem 1.25rem 3.125rem;
-  max-width: 24.625rem;
+  gap: 3.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3.125rem 0 5rem;
   background-color: rgba(63, 91, 83, 0.1);
 }
-main #get-it-going .wrapper .card-step-by-step img {
-  aspect-ratio: 16/9;
-  background-color: darkgrey;
-}
-main #get-it-going .wrapper .card-step-by-step .card-text-box {
+main #examples .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  gap: 0.625rem;
-  flex-direction: row;
-}
-main #get-it-going .wrapper .card-step-by-step .card-text-box b {
-  position: relative;
-  top: 0;
-}
-main #get-it-going .wrapper .card-step-by-step .card-text-box p {
-  margin-top: 0;
 }
 
 /*# sourceMappingURL=landingpage.css.map */

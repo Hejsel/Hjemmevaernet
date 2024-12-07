@@ -1,206 +1,207 @@
 /* Resets */
 body {
-  padding: 0;
-  margin: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /* Fonts */
 
 /* Colors */
 :root {
-  --primary-red: #8d1b3d;
-  --secondary-gray: #3f5b58;
+	--primary-red: #8d1b3d;
+	--secondary-gray: #3f5b58;
 
-  --white: #fff;
-  --black: #000;
+	--white: #fff;
+	--black: #000;
 
-  /* Header height values to be used on header aswell as padding, on body og next element,
+	/* Header height values to be used on header aswell as padding, on body og next element,
     to ensure content won't lay under the header.  */
-  --header-height-desktop: 108px;
-  --header-height-mobile: 83px;
+	--header-height-desktop: 108px;
+	--header-height-mobile: 83px;
 }
 /* Header styling */
 #header__container {
-  height: var(--header-height-mobile);
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-shadow: none;
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	height: var(--header-height-mobile);
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	box-shadow: none;
+	transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	z-index: 99;
 }
 #header__container.scrolled {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  background-color: var(--white);
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+	background-color: var(--white);
 }
 .header__content {
-  height: 100%;
-  margin: auto;
-  padding: 0 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+	height: 100%;
+	margin: auto;
+	padding: 0 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 }
 .header__logo-mobile-container {
-  display: block;
-  margin: 0 16px;
-  padding: 16px 0;
+	display: block;
+	margin: 0 16px;
+	padding: 16px 0;
 }
 .header__logo-desktop-container {
-  display: block;
-  margin: 0 16px;
-  padding: 16px 0;
+	display: block;
+	margin: 0 16px;
+	padding: 16px 0;
 }
 .header__logo-mobile-icon {
-  height: 56px;
+	height: 56px;
 }
 .header__logo-desktop-icon {
-  height: 80px;
-  margin: 0 16px;
+	height: 80px;
+	margin: 0 16px;
 }
 .navigation__burger-menu-btn {
-  padding: 12px;
-  display: block;
+	padding: 12px;
+	display: block;
 }
 .navigation__burger-menu-icon {
-  width: 36px;
+	width: 36px;
 }
 .navigation__menu {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 20px;
 }
 .navigation__menu-item {
-  font-size: 15px;
-  font-weight: bold;
-  color: var(--black);
-  text-decoration: none;
-  list-style: none;
+	font-size: 15px;
+	font-weight: bold;
+	color: var(--black);
+	text-decoration: none;
+	list-style: none;
 }
 .navigation__menu-profile {
-  height: 32px;
+	height: 32px;
 }
 /* Footer styling */
 .footer__container {
-  width: 100%;
-  background: var(--primary-red);
+	width: 100%;
+	background: var(--primary-red);
 }
 .footer__content {
-  margin: auto;
-  padding: 0 15px;
+	margin: auto;
+	padding: 0 15px;
 }
 .footer__navigation-list {
-  padding: 10px 0 30px 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
+	padding: 10px 0 30px 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
 }
 .footer__list-item {
-  margin: 10px 0;
-  font-size: 1rem;
+	margin: 10px 0;
+	font-size: 1rem;
 }
 .footer__list-item-link {
-  min-height: 44px;
-  min-width: 33px;
-  text-decoration: none;
-  color: var(--white);
-  display: flex;
-  align-items: center;
+	min-height: 44px;
+	min-width: 33px;
+	text-decoration: none;
+	color: var(--white);
+	display: flex;
+	align-items: center;
 }
 .footer__list-item-link:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 /* Header & Footer responsiveness */
 @media screen and (min-width: 576px) {
-  .header__content {
-    max-width: 540px;
-  }
-  .footer__content {
-    max-width: 540px;
-  }
-  #header__container {
-    height: var(--header-height-desktop);
-  }
+	.header__content {
+		max-width: 540px;
+	}
+	.footer__content {
+		max-width: 540px;
+	}
+	#header__container {
+		height: var(--header-height-desktop);
+	}
 }
 @media screen and (min-width: 768px) {
-  .header__content {
-    max-width: 720px;
-  }
-  .footer__content {
-    max-width: 720px;
-  }
+	.header__content {
+		max-width: 720px;
+	}
+	.footer__content {
+		max-width: 720px;
+	}
 }
 @media screen and (min-width: 992px) {
-  .header__content {
-    max-width: 960px;
-  }
-  .footer__content {
-    max-width: 960px;
-  }
-  .footer__navigation-list {
-    flex-direction: row;
-    justify-content: flex-end;
-    padding: 10px 0;
-  }
-  .footer__list-item {
-    margin: 0 0 0 30px;
-  }
+	.header__content {
+		max-width: 960px;
+	}
+	.footer__content {
+		max-width: 960px;
+	}
+	.footer__navigation-list {
+		flex-direction: row;
+		justify-content: flex-end;
+		padding: 10px 0;
+	}
+	.footer__list-item {
+		margin: 0 0 0 30px;
+	}
 }
 @media screen and (min-width: 1200px) {
-  .header__content {
-    max-width: 1140px;
-  }
-  .footer__content {
-    max-width: 1140px;
-  }
+	.header__content {
+		max-width: 1140px;
+	}
+	.footer__content {
+		max-width: 1140px;
+	}
 }
 /* Switch header structure based on screen size */
 @media screen and (max-width: 992px) {
-  .navigation__menu {
-    display: none;
-  }
-  .navigation__burger-menu {
-    display: block;
-    cursor: pointer;
-  }
+	.navigation__menu {
+		display: none;
+	}
+	.navigation__burger-menu {
+		display: block;
+		cursor: pointer;
+	}
 }
 @media screen and (min-width: 992px) {
-  .navigation__menu {
-    display: flex;
-  }
-  .navigation__burger-menu {
-    display: none;
-  }
+	.navigation__menu {
+		display: flex;
+	}
+	.navigation__burger-menu {
+		display: none;
+	}
 }
 @media screen and (max-width: 576px) {
-  .header__logo-desktop {
-    display: none;
-  }
-  .header__logo-mobile {
-    display: block;
-  }
+	.header__logo-desktop {
+		display: none;
+	}
+	.header__logo-mobile {
+		display: block;
+	}
 }
 @media screen and (min-width: 576px) {
-  .header__logo-desktop {
-    display: block;
-  }
-  .header__logo-mobile {
-    display: none;
-  }
+	.header__logo-desktop {
+		display: block;
+	}
+	.header__logo-mobile {
+		display: none;
+	}
 }
 /* Global Buttons */
 .menu-btn {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--white);
-  padding: 6px 12px;
-  background: var(--primary-red);
-  text-decoration: none;
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--white);
+	padding: 6px 12px;
+	background: var(--primary-red);
+	text-decoration: none;
 }
 
 .menu-btn:hover {
-  background: var(--secondary-gray);
+	background: var(--secondary-gray);
 }

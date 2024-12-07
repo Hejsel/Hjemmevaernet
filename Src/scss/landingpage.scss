@@ -1,29 +1,53 @@
 @import 'variables';
 @import 'mixins';
-
+@import 'components/buttons.scss';
+@import 'components/cards';
+@import 'components/full-bleed-out-of-container';
+@import 'components/headings.scss';
+@import 'components/list-boxes';
+@import 'components/paragraphs';
+body {
+	font-family: 'Verdana, Geneva, Tahoma, sans-serif';
+}
+ol {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	margin: 0;
+	padding: 0 0 0 1.25rem;
+	list-style-type: disc;
+}
 main {
-	margin: $main-margin;
+	@include main-margin;
 	@include flex-container;
+	@include screen-size(tablet-small) {
+		gap: 3.125rem;
+	}
+	@include screen-size(mobile) {
+		gap: 3.125rem;
+	}
 	#hero {
 		@include flex-container(column, 3.125rem);
 		@include flex-align(center, center);
 		.container {
 			@include flex-container(column, 0.625rem);
-			@include flex-align(center, center);
-			h1,
-			p {
-				max-width: 70%;
-				text-align: center;
-			}
-			button {
-				margin-top: 2.5rem;
-			}
+			@include flex-align(space-around, center);
 		}
 		img {
-			max-width: 60%;
+			max-width: 52%;
+			min-width: 50.2rem;
 			width: 100%;
 			aspect-ratio: 1.618 / 1;
 			background-color: darkgray;
+			@include screen-size(tablet-small) {
+				max-width: 80%;
+				min-width: 46.875rem;
+			}
+			@include screen-size(mobile) {
+				max-width: 100%;
+				min-width: 0;
+			}
 		}
 	}
 	#get-it-going {
@@ -32,38 +56,21 @@ main {
 		.container {
 			@include flex-align(center, center);
 			flex-direction: column;
-			h2,
-			p {
-				max-width: 70%;
-				text-align: center;
-			}
 		}
-		.wrapper {
+		#step-by-step-list {
 			@include flex-wrapper;
 			@include flex-align(center, center);
 			gap: 0.625rem;
-			max-width: 71.25rem;
-			.card-step-by-step {
-				@include flex-container(column, 1.25rem);
-				padding: $card-padding;
-				max-width: 24.625rem;
-				background-color: $fmn-10-procent;
-				img {
-					aspect-ratio: 16 / 9;
-					background-color: darkgrey;
-				}
-				.card-text-box {
-					@include flex-container(column, 0.625rem);
-					flex-direction: row;
-					b {
-						position: relative;
-						top: 0;
-					}
-					p {
-						margin-top: 0;
-					}
-				}
-			}
+		}
+	}
+	#examples {
+		@include flex-container(column, 3.125rem);
+		@include flex-align(center, center);
+		padding: 3.125rem 0 5rem;
+		background-color: $fmn-10-procent;
+		.container {
+			@include flex-align(center, center);
+			flex-direction: column;
 		}
 	}
 }

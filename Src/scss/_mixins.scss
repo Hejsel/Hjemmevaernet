@@ -1,10 +1,4 @@
-// Flex gap
-/* Der bruges følgende gap værdiger
-    80px = 5rem
-    31px = 1.938rem
-    20px = 1.25rem
-    10px = 0.625rem
-*/
+// Flex container
 @mixin flex-container($retning: column, $gap: 5rem) {
 	display: flex;
 	flex-direction: $retning;
@@ -22,44 +16,50 @@
 	}
 }
 
+// Flex wrapper
 @mixin flex-wrapper {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-// Padding
-@mixin padding-standard($top: 2rem, $side: 1rem) {
-	padding: $top $side;
-}
-@mixin responsiv-padding($top: 2rem, $side: 1rem) {
-	padding: $top $side;
-
-	@media (max-width: $mobile-max-size) {
-		padding: $top / 2 $side / 2;
-	}
+// Margin
+@mixin main-margin {
+	margin-top: clamp(8.313rem, $fluid-step-header, 9.875rem);
+	margin-right: 0.625rem;
+	margin-bottom: 0;
+	margin-left: 0.625rem;
 }
 
 // Media breakpoints
 @mixin screen-size($size) {
 	@if $size == mobile {
-		@media (max-width: $mobile-max-size) {
-			// 743px
+		@media (width <= #{$mobile-max-size}) {
 			@content;
 		}
 	} @else if $size == tablet-small {
-		@media (min-width: $tablet-small-min-size) and (max-width: $tablet-big-min-size) {
-			// 744px til 1024px
+		@media (width >= #{$tablet-small-min-size}) and (width <= #{$tablet-big-min-size}) {
 			@content;
 		}
 	} @else if $size == tablet-big {
-		@media (min-width: $tablet-big-min-size) and (max-width: $desktop-min-size) {
-			// 1024px til 1200px
+		@media (width >= #{$tablet-big-min-size}) and (width <= #{$desktop-min-size}) {
 			@content;
 		}
 	} @else if $size == desktop {
-		@media (min-width: $desktop-min-size) {
-			// 1200px
+		@media (width >= #{$desktop-min-size}) {
 			@content;
 		}
 	}
+}
+
+// Typography
+@mixin heading($fontSizes-h1-mobile, $font-size-h1, $fluid-step-header, $line-height-heading, $letter-spacing-h1) {
+	font-size: clamp($fontSizes-h1-mobile, $fluid-step-header, $font-size-h1);
+	line-height: $line-height-heading;
+	letter-spacing: $letter-spacing-h1;
+	margin: 0 1.25rem;
+}
+@mixin body($fontSize-body-mobile, $font-size-body, $fluid-step-body, $line-height-body, $letter-spacing-body) {
+	font-size: clamp($fontSize-body-mobile, $fluid-step-body, $font-size-body);
+	line-height: $line-height-body;
+	letter-spacing: $letter-spacing-body;
 }
