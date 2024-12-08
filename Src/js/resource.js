@@ -1,3 +1,4 @@
+// Emne bokse filtrering
 document.addEventListener('DOMContentLoaded', () => {
     const checkboxes = document.querySelectorAll('.checkbox-input');
     const bogElements = document.querySelectorAll('#bog');
