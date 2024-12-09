@@ -17,6 +17,7 @@ function callback(req, res) {
   else {
     filePath = `./src/pages${req.url}.html`;
   }
+  console.log(filepath);
   const extname = String(path.extname(filePath)).toLowerCase();
   const mimeTypes = {
     ".html": "text/html",
