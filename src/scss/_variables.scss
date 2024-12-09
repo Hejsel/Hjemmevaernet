@@ -1,0 +1,52 @@
+// Margin
+$main-margin: 9.875rem 0.625rem 0;
+$mb-50px: 3.125rem;
+
+// Padding
+$card-padding: 1.25rem 1.25rem 3.125rem;
+
+// Screen sizes
+$mobile-max-size: 46.5rem;
+$tablet-small-min-size: 46.5rem;
+$tablet-big-min-size: 64rem;
+$desktop-min-size: 75rem;
+
+// Base Color
+$white: #fff;
+
+// Primary Color
+$hjv: #8d1b3d;
+
+// Secondary colors
+$fmn: #3f5b58;
+
+// Additional colors
+$fmn-10-procent: rgba(63, 91, 83, 0.1);
+
+// Line Heights
+$line-height-heading: 1.5;
+$line-height-body: 1.5;
+
+// Letter Spacing
+$letter-spacing-h1: -0.013rem;
+$letter-spacing-h2: -0.025rem;
+$letter-spacing-body: -0.031rem;
+
+// Paragraph Spacing
+$paragraph-spacing-h1: 2rem;
+$paragraph-spacing-h2: 1.625rem;
+
+// Font Sizes
+// h1
+$font-size-h1: 2.706rem;
+$fontSizes-h1-mobile: 1.37rem;
+// h2
+$font-size-h2: 2.353rem;
+$fontSize-h2-mobile: 1.76471rem;
+// body
+$font-size-body: 1rem;
+$fontSize-body-mobile: 0.941rem;
+
+// Responsiv Font Settings
+$fluid-step-header: 5vw;
+$fluid-step-body: 2vw;

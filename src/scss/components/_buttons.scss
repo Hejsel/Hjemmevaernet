@@ -1,0 +1,18 @@
+// Main CTA Button
+.btn-main-cta {
+	background-color: $hjv;
+	color: $white;
+	margin-top: 1.938rem;
+	padding: 0.625rem 0.938rem;
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	text-decoration: none;
+
+	&:hover {
+		background-color: $fmn;
+	}
+	@include screen-size(mobile) {
+		font-size: 0.625rem;
+	}
+}
