@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const clearFilterButton = document.querySelector('#buttons');
     clearFilterButton.addEventListener('click', (e) => {
-      e.preventDefault();
       checkboxes.forEach(checkbox => (checkbox.checked = false));
       filterBooks();
     });
