@@ -55,6 +55,41 @@
   clip-path: inset(0 -100vmax);
 }
 
+body {
+  font-family: "Verdana, Geneva, Tahoma, sans-serif";
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  list-style-type: disc;
+}
+
+main {
+  margin-top: clamp(8.313rem, 5vw, 9.875rem);
+  margin-right: 0.625rem;
+  margin-bottom: 0;
+  margin-left: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+@media (width >= 46.5rem) and (width <= 64rem) {
+  main {
+    gap: 3.125rem;
+  }
+}
+@media (width <= 46.5rem) {
+  main {
+    gap: 3.125rem;
+  }
+}
+
 .h1-style {
   min-width: 17.5rem;
   text-align: center;
@@ -102,41 +137,7 @@
   letter-spacing: -0.031rem;
 }
 
-body {
-  font-family: "Verdana, Geneva, Tahoma, sans-serif";
-}
-
-ol {
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0 0 0 1.25rem;
-  list-style-type: disc;
-}
-
-main {
-  margin-top: clamp(8.313rem, 5vw, 9.875rem);
-  margin-right: 0.625rem;
-  margin-bottom: 0;
-  margin-left: 0.625rem;
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-}
-@media (width >= 46.5rem) and (width <= 64rem) {
-  main {
-    gap: 3.125rem;
-  }
-}
-@media (width <= 46.5rem) {
-  main {
-    gap: 3.125rem;
-  }
-}
-main #hero {
+#hero {
   display: flex;
   flex-direction: column;
   gap: 3.125rem;
@@ -144,7 +145,7 @@ main #hero {
   justify-content: center;
   align-items: center;
 }
-main #hero .container {
+#hero .container {
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
@@ -152,7 +153,7 @@ main #hero .container {
   justify-content: space-around;
   align-items: center;
 }
-main #hero img {
+#hero img {
   max-width: 52%;
   min-width: 50.2rem;
   width: 100%;
@@ -160,18 +161,19 @@ main #hero img {
   background-color: darkgray;
 }
 @media (width >= 46.5rem) and (width <= 64rem) {
-  main #hero img {
+  #hero img {
     max-width: 80%;
     min-width: 46.875rem;
   }
 }
 @media (width <= 46.5rem) {
-  main #hero img {
+  #hero img {
     max-width: 100%;
     min-width: 0;
   }
 }
-main #get-it-going {
+
+#get-it-going {
   display: flex;
   flex-direction: column;
   gap: 3.125rem;
@@ -179,13 +181,13 @@ main #get-it-going {
   justify-content: center;
   align-items: center;
 }
-main #get-it-going .container {
+#get-it-going .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-main #get-it-going #step-by-step-list {
+#get-it-going #step-by-step-list {
   display: flex;
   flex-wrap: wrap;
   display: flex;
@@ -193,7 +195,8 @@ main #get-it-going #step-by-step-list {
   align-items: center;
   gap: 0.625rem;
 }
-main #examples {
+
+#examples {
   display: flex;
   flex-direction: column;
   gap: 3.125rem;
@@ -203,7 +206,7 @@ main #examples {
   padding: 3.125rem 0 5rem;
   background-color: rgba(63, 91, 83, 0.1);
 }
-main #examples .container {
+#examples .container {
   display: flex;
   justify-content: center;
   align-items: center;
