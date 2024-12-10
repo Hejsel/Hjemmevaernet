@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Lokal css & js-->
-    <link rel="stylesheet" href="/dist/css/resource.css" />
-    <script src="/src/js/resource.js" defer></script>
 
-    <!--Global css & js-->
-    <link rel="stylesheet" href="/dist/css/global.css" />
-    <!-- Header -->
-    <script src="/src/js/header.js" defer></script>
-    <!--footer-->
-    <script src="/src/js/footer.js" defer></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--Lokal css & js-->
+  <link rel="stylesheet" href="/dist/css/resource.css" />
+  <script src="/src/js/resource.js" defer></script>
 
-    <title>Resource page</title>
-  </head>
+  <!--Global css & js-->
+  <link rel="stylesheet" href="/dist/css/global.css" />
+  <!-- Header -->
+  <script src="/src/js/header.js" defer></script>
+  <!--footer-->
+  <script src="/src/js/footer.js" defer></script>
 
-  <body>
-    <!-- lagt denne header ind. -->
-    <header id="header"></header>
+  <title>Resource page</title>
+</head>
 
-    <p>test</p>
+<body>
+  <!-- lagt denne header ind. -->
+  <header id="header"></header>
+
+  <main>
     <h1>Undervisnings ressourcer</h1>
     <p id="topTekst">
       Her finder du et bredt udvalg af undervisningsmaterialer, der er skræddersyet til at understøtte
@@ -29,7 +30,7 @@
     </p>
     <hr />
 
-    <main id="main">
+    <section id="mainIndhold">
       <section id="emne">
         <h3>Emne</h3>
         <form id="emneBokse">
@@ -44,7 +45,9 @@
 
       <section id="boger">
         <div id="bog" data-category="Didaktiske designprincipper,Undervisningsbøger">
-          <img id="imgSize" src="/src/assets/Img/didaktiskes.png" alt="" />
+          <a href="/src/assets/pdf/Didaktiske-Design-Overvejelser.pdf" target="”_blank”">
+            <img id="imgSize" src="/src/assets/Img/didaktiskes.png" alt="Forside til PDF'en Didaktiske Design Overvejelser" />
+          </a>
           <div id="bogTekst">
             <h3>Didaktiske Design Overvejelser</h3>
             <p>
@@ -52,14 +55,16 @@
               med fokus på didaktiske designprincipper. Den indeholder metoder, læringsaktiviteter,
               undervisningsprincipper, organisationsformer, hjælpemidler og evalueringsteknikker.
             </p>
-            <a href="/src/assets/pdf/Didaktiske-Design-Overvejelser.pdf" target="”_blank”" id="buttons"
-              >Hent pdf</a
-            >
+            <a href="/src/assets/pdf/Didaktiske-Design-Overvejelser.pdf" target="”_blank”" id="buttons">Hent pdf</a>
           </div>
         </div>
+
         <hr />
+        
         <div id="bog" data-category="Hæren,Undervisningsbøger">
-          <img id="imgSize" src="/src/assets/Img/Faglaerer-i-Haeren.png" alt="" />
+          <a href="/src/assets/pdf/Faglaerer-i-Haeren.pdf" target="”_blank”">
+            <img id="imgSize" src="/src/assets/Img/Faglaerer-i-Haeren.png" alt="Forside til PDF'en Faglærer i Hæren" />
+          </a>
           <div id="bogTekst">
             <h3>Faglærer i Hæren</h3>
             <p>
@@ -71,9 +76,14 @@
             <a href="/src/assets/pdf/Faglaerer-i-Haeren.pdf" target="”_blank”" id="buttons">Hent pdf</a>
           </div>
         </div>
+        
         <hr />
+        
         <div id="bog" data-category="Undervisningsbøger,Instruktør">
-          <img id="imgSize" src="/src/assets/Img/Instruktoervirke.png" alt="" />
+          <a href="/src/assets/pdf/Instruktoervirke-i-Forsvaret.pdf" target="”_blank”">
+            <img id="imgSize" src="/src/assets/Img/Instruktoervirke.png" alt="Forside til PDF'en Instruktørvirke i Forsvaret" />
+          </a>
+
           <div id="bogTekst">
             <h3>Instruktørvirke i Forsvaret</h3>
             <p>
@@ -82,25 +92,27 @@
               instruktørens pædagogiske praksis. Materialet bygger på Forsvarets traditioner og
               læringsteorier.
             </p>
-            <a href="/src/assets/pdf/Instruktoervirke-i-Forsvaret.pdf" target="”_blank”" id="buttons"
-              >Hent pdf</a
-            >
+            <a href="/src/assets/pdf/Instruktoervirke-i-Forsvaret.pdf" target="”_blank”" id="buttons">Hent pdf</a>
           </div>
         </div>
+
         <hr />
+        
         <div id="bog" data-category="Undervisningsbøger,Instruktør">
-          <img id="imgSize" src="/src/assets/Img/Instruktoer-i-Haeren.png" alt="" />
+          <a href="/src/assets/pdf/Instruktoer-i-Haeren.pdf" target="”_blank”" id="buttons">
+            <img id="imgSize" src="/src/assets/Img/Instruktoer-i-Haeren.png" alt="Forside til PDF'en Instruktør i Hæren" />
+          </a>
           <div id="bogTekst">
             <h3>Instruktør i Hæren</h3>
             <p>Et eller andet tekst</p>
-            <a href="/src/assets/pdf/Instruktoer-i-Haeren.pdf" target="”_blank”" id="buttons"
-              >Hent pdf</a
-            >
+            <a href="/src/assets/pdf/Instruktoer-i-Haeren.pdf" target="”_blank”" id="buttons">Hent pdf</a>
           </div>
         </div>
       </section>
-    </main>
+    </section>
+  </main>
 
-    <footer id="footer"></footer>
-  </body>
+  <footer id="footer"></footer>
+</body>
+
 </html>
