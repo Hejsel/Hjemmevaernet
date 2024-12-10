@@ -42,16 +42,46 @@
                   alt="A placeholder profile picture"
               /></a>
             </div>
-            <div class="navigation__burger-menu" id="burgerMenu">
-              <a class="navigation__burger-menu-btn" href="#">
+            <div class="navigation__mobile-menu">
+              <a class="navigation__mobile-menu-btn" id="mobileMenuOpenBtn" href="#">
                 <img
                   src="/src/assets/icons/menu.svg"
-                  class="navigation__burger-menu-icon"
+                  class="navigation__mobile-menu-icon"
                   alt="A burger menu icon"
                 />
               </a>
             </div>
           </nav>
+          <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu__header">
+              <img
+                class="mobile-menu__header-logo"
+                src="/src/assets/logos/hjv_logo.svg"
+                alt="Hjemmeværnets logo"
+              />
+              <a class="mobile-menu__close-btn" id="mobileMenuCloseBtn" href="#"
+                ><img
+                  class="mobile-menu__close-icon"
+                  src="/src/assets/icons/close.svg"
+                  alt="A close button"
+              /></a>
+            </div>
+            <nav class="mobile-menu__navigation">
+              <ul class="mobile-menu__navigation-list">
+                <li class="mobile-menu__card">
+                  <a class="mobile-menu__card-btn" href="/src/pages/resource.html"
+                    >Undervisningsrescourser</a
+                  >
+                </li>
+                <li class="mobile-menu__card">
+                  <a class="mobile-menu__card-btn" href="/src/pages/chatbot.html">Chatbot</a>
+                </li>
+                <li class="mobile-menu__card">
+                  <a class="mobile-menu__card-btn" href="#">Profil</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </div>

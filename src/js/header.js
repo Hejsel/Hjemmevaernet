@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", async function () {
   await loadHeader();
   scrollEvent();
+  setupMenuListeners();
 });
 async function loadHeader() {
   try {
@@ -32,4 +33,28 @@ function scrollEvent() {
       header.classList.remove("scrolled");
     }
   });
+}
+
+// Burger menu functionality
+function setupMenuListeners() {
+  const mobileMenu = document.querySelector("#mobileMenu");
+  const mobileMenuOpenBtn = document.querySelector("#mobileMenuOpenBtn");
+  const mobileMenuCloseBtn = document.querySelector("#mobileMenuCloseBtn");
+  console.log(mobileMenu, mobileMenuCloseBtn, mobileMenuOpenBtn);
+  if (!mobileMenu || !mobileMenuOpenBtn || !mobileMenuCloseBtn) {
+    console.warn("HTML elementer blev ikke fundet");
+    return;
+  }
+  if (!mobileMenuOpenBtn.hasAttribute("data-listener")) {
+    mobileMenuOpenBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("open");
+    });
+    mobileMenuOpenBtn.setAttribute("data-listener", true);
+  }
+  if (!mobileMenuCloseBtn.hasAttribute("data-listener")) {
+    mobileMenuCloseBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+    });
+  }
+  mobileMenuCloseBtn.setAttribute("data-listener", true);
 }
