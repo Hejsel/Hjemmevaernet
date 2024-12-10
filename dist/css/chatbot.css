@@ -1,180 +1,345 @@
-/* styles.css */
-/* h1,
-h2,
-h3,
-p {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  line-height: 150%;
-}
-
-h1 {
-  margin-top: 2em;
-  font-weight: bold;
-  font-size: 43px;
-}
-
-h2 {
-  font-weight: bold;
-  font-size: 43px;
-}
-
-h3 {
-  font-weight: bold;
-  font-size: 18.8px;
-}
-
-p {
-  font-size: 16px;
-} */
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3rem 2rem;
-  background-color: #fff;
-}
-
-/* .logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-} */
-
-/* .logo img {
-  height: 70px;
-  margin-right: 30px;
-} */
-
-/* .header .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-} */
-
-.header .nav a {
-  margin-left: 2rem;
+@charset "UTF-8";
+.btn-main-cta {
+  background-color: #8d1b3d;
   color: #fff;
+  margin-top: 1.938rem;
+  padding: 0.625rem 0.938rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
   text-decoration: none;
 }
-
-.header .nav a:hover {
-  text-decoration: underline;
+.btn-main-cta:hover {
+  background-color: #3f5b58;
+}
+@media (width <= 46.5rem) {
+  .btn-main-cta {
+    font-size: 0.625rem;
+  }
 }
 
-.header .profile-pic {
-  width: 40px;
-  height: 40px;
-  background-color: #ccc;
-  border-radius: 50%;
-}
-
-.container {
-  display: flex;
-  height: calc(100vh - 102px); /* GAMMEL -72px = header height */
-}
-
-.sidebar {
-  width: 250px;
-  background-color: #1a1b19;
-  color: #fff;
+.card-step-by-step {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  gap: 1.25rem;
+  padding: 1.25rem 1.25rem 3.125rem;
+  max-width: 24.625rem;
+  background-color: rgba(63, 91, 83, 0.1);
 }
-
-.sidebar .search input {
-  width: 90%;
-  padding: 0.8rem;
-  border: none;
+.card-step-by-step img {
+  aspect-ratio: 16/9;
+  background-color: darkgrey;
 }
-
-.sidebar .folders {
-  margin-top: 1rem;
-  flex-grow: 1;
-}
-
-.sidebar .folder {
-  background-color: #666;
-  padding: 0.8rem;
-  margin-bottom: 0.5rem;
-  cursor: pointer;
-}
-
-.sidebar .folder:hover {
-  background-color: #444;
-}
-
-.sidebar .add-folder {
-  background-color: #333;
-  color: #fff;
-  padding: 0.8rem;
-  border: none;
-  cursor: pointer;
-}
-
-.sidebar .add-folder:hover {
-  background-color: #555;
-}
-
-.content {
-  flex-grow: 1;
-  background-color: #f4f4f4;
-}
-
-/* ====================================
-   chatbot
-   Beskrivelse af sektion
-   ==================================== */
-
-.chat {
+.card-step-by-step .card-text-box {
   display: flex;
   flex-direction: column;
+  gap: 0.625rem;
+  flex-direction: row;
+}
+.card-step-by-step .card-text-box b {
+  position: static;
+  top: 0;
+  color: #8d1b3d;
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+}
+.card-step-by-step .card-text-box p {
+  margin-top: 0;
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+}
+
+.full-bleed {
+  box-shadow: 0 0 0 100vmax rgba(63, 91, 83, 0.1);
+  clip-path: inset(0 -100vmax);
+}
+
+body {
+  font-family: "Verdana, Geneva, Tahoma, sans-serif";
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  list-style-type: disc;
+}
+
+main {
+  margin-top: clamp(8.313rem, 5vw, 9.875rem);
+  margin-right: 0.625rem;
+  margin-bottom: 0;
+  margin-left: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+@media (width >= 46.5rem) and (width <= 64rem) {
+  main {
+    gap: 3.125rem;
+  }
+}
+@media (width <= 46.5rem) {
+  main {
+    gap: 3.125rem;
+  }
+}
+
+.h1-style {
+  min-width: 17.5rem;
+  text-align: center;
+  font-size: clamp(1.37rem, 5vw, 2.706rem);
+  line-height: 1.5;
+  letter-spacing: -0.013rem;
+  margin: 0 1.25rem;
+}
+
+.h2-style {
+  min-width: 17.5rem;
+  text-align: center;
+  font-size: clamp(1.76471rem, 5vw, 2.353rem);
+  line-height: 1.5;
+  letter-spacing: -0.025rem;
+  margin: 0 1.25rem;
+}
+
+#examples-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.938rem;
+  list-style: none;
+  max-width: 50rem;
+  padding: 0;
+}
+#examples-list .examples-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+  background-color: #3f5b58;
+  padding: 1.25rem 1.25rem 3.125rem;
+  color: #fff;
+}
+
+.body-text-center {
+  min-width: 17.5rem;
+  text-align: center;
+  max-width: 60%;
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+}
+
+.hidden {
+  display: none;
+}
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  margin-top: clamp(5.188rem, 11vw, 8.625rem);
+  margin-bottom: 0.625rem;
+  gap: 30px;
+  flex-direction: row;
+  margin-right: 20px;
+}
+
+aside {
+  width: 238px;
+  background-color: #f5f5f5;
+  border: #dadada;
+  padding: 1.25rem;
+}
+aside nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/*
+footer {
+	background-color: $hjv;
+	padding: 0 1.25rem;
+	nav {
+		ul {
+			@include flex-container(row, 0.625rem);
+			@include flex-align(right);
+			list-style: none;
+			a {
+				text-decoration: none;
+				color: $white;
+				font-size: 0.75rem;
+			}
+		}
+	}
+}
+*/
+.searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.searchbar .searchfield {
+  height: 0.813rem;
+}
+.searchbar label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.searchbar input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #8d1b3d;
+  border: 2px solid rgba(255, 99, 71, 0);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.searchbar input:focus {
+  border-color: rgb(98.1964285714, 18.8035714286, 42.4821428571);
+}
+.searchbar input::placeholder {
+  color: #fff;
+}
+.searchbar button {
+  padding: 6.55px 9px;
+  font-size: 1rem;
+  background-color: #8d1b3d;
+  color: white;
+  border: 2px solid rgba(255, 99, 71, 0);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.searchbar button:hover {
+  background-color: rgb(98.1964285714, 18.8035714286, 42.4821428571);
+}
+
+.dialog-liste {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden; /* Skjul horisontal scroll */
+  gap: 20px;
+}
+.dialog-liste .dato-sektion h2 {
+  font-size: 0.9rem;
+  color: #000;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.dialog-liste .dato-sektion ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dialog-liste .dato-sektion ul li {
+  margin-bottom: 8px;
+}
+.dialog-liste .dato-sektion ul li a {
+  text-decoration: none;
+  color: #000;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 0.95rem;
+  gap: 5px;
+  min-height: 22px;
+  display: block; /* Sørger for, at a tagget fylder hele bredden */
+  white-space: nowrap; /* Forhindrer at teksten brydes over flere linjer */
+  overflow: hidden; /* Skjuler tekst, der går ud over containerens bredde */
+  text-overflow: ellipsis;
+}
+.dialog-liste .dato-sektion ul li a:hover {
+  background-color: rgb(206.75, 206.75, 206.75);
+}
+.dialog-liste .dato-sektion ul li a.aktiv {
+  background-color: #5b6e87; /* Aktiv samtale farve */
+  color: #fff; /* Lys tekstfarve for aktive elementer */
+}
+.dialog-liste .dato-sektion ul li a .content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#promt-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#promt-area .chatgpt-output {
   height: 100%;
 }
-
-.chat-window {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding: 1rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
-}
-
-.chat-window div {
-  margin-bottom: 1rem;
-}
-
-.chat-input {
+#promt-area .chat-user-input {
+  max-width: 700px;
+  width: 100%;
   display: flex;
-  padding: 1rem;
-  background-color: #eee;
-  border-top: 1px solid #ccc;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #dadada;
+  background-color: #f5f5f5;
+  padding: 10px;
+  flex-direction: row; /* Skift retning for dynamisk vækst */
+  max-height: 400px; /* Maksimal højde for hele boksen */
+  overflow: hidden; /* Forhindrer indhold i at gå udenfor containeren */
 }
-
-.chat-input input {
-  flex-grow: 1;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 0.5rem;
-}
-
-.chat-input button {
-  padding: 0.8rem;
-  background-color: #1a1b19;
-  color: white;
+#promt-area .chat-user-input #autoResize {
+  width: 100%;
+  min-height: 50px; /* Mindste højde */
+  max-height: 260px; /* Maksimal højde for textarea */
+  resize: none; /* Tillad kun manuel vertikal resizing */
+  padding: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
   border: none;
-  border-radius: 4px;
+  outline: none;
+  overflow-y: auto; /* Tilføj vertikal scroll, hvis nødvendigt */
+  background-color: rgba(255, 99, 71, 0);
+}
+#promt-area .chat-user-input #autoResize::placeholder {
+  color: #999;
+}
+#promt-area .chat-user-input button {
+  border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  background-color: rgba(255, 99, 71, 0);
+  padding: 0;
+}
+#promt-area .chat-user-input button img {
+  width: 35px;
+  height: 35px;
+}
+#promt-area .chat-user-input button img:hover {
+  filter: drop-shadow(0px 0px 5px rgb(241.0178571429, 181.9821428571, 199.5892857143));
 }
 
-.chat-input button:hover {
-  background-color: #333;
-}
+/*# sourceMappingURL=chatbot.css.map */
