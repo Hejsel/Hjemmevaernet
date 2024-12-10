@@ -1,0 +1,224 @@
+@import 'variables';
+@import 'mixins';
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/full-bleed-out-of-container';
+@import 'components/globals';
+@import 'components/headings';
+@import 'components/list-boxes';
+@import 'components/paragraphs';
+@import 'components/hidden';
+html,
+body {
+	height: 100%;
+	@include flex-container(column, null);
+}
+main {
+	flex: 1;
+	margin-top: clamp(5.188rem, 11vw, 8.625rem);
+	margin-bottom: 0.625rem;
+	gap: 30px;
+	flex-direction: row;
+	margin-right: 20px;
+}
+
+aside {
+	width: 238px;
+	background-color: #f5f5f5;
+	border: #dadada;
+	padding: 1.25rem;
+	nav {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+}
+
+/*
+footer {
+	background-color: $hjv;
+	padding: 0 1.25rem;
+	nav {
+		ul {
+			@include flex-container(row, 0.625rem);
+			@include flex-align(right);
+			list-style: none;
+			a {
+				text-decoration: none;
+				color: $white;
+				font-size: 0.75rem;
+			}
+		}
+	}
+}
+*/
+.searchbar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.searchfield {
+		height: 0.813rem;
+	}
+
+	label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0; // Skjuler label visuelt, men bevarer tilgængelighed for screen readers
+	}
+
+	input {
+		width: 100%;
+		padding: 8px 12px;
+		font-size: 1rem;
+		color: $white;
+		background-color: $hjv;
+		border: 2px solid rgba(255, 99, 71, 0);
+		outline: none;
+		transition: border-color 0.3s ease;
+
+		&:focus {
+			border-color: darken($hjv, 10%);
+		}
+		&::placeholder {
+			color: $white;
+		}
+	}
+
+	button {
+		padding: 6.55px 9px;
+		font-size: 1rem;
+		background-color: $hjv;
+		color: white;
+		border: 2px solid rgba(255, 99, 71, 0);
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+
+		&:hover {
+			background-color: darken($hjv, 10%);
+		}
+	}
+}
+
+.dialog-liste {
+	//height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	overflow-x: hidden; /* Skjul horisontal scroll */
+	gap: 20px;
+
+	.dato-sektion {
+		h2 {
+			font-size: 0.9rem;
+			color: #000;
+			margin-bottom: 12px;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			li {
+				margin-bottom: 8px;
+
+				a {
+					text-decoration: none;
+					color: #000;
+					padding: 8px 10px;
+					border-radius: 8px;
+					transition: background-color 0.3s ease, color 0.3s ease;
+					font-size: 0.95rem;
+					gap: 5px;
+					min-height: 22px;
+					display: block; /* Sørger for, at a tagget fylder hele bredden */
+					white-space: nowrap; /* Forhindrer at teksten brydes over flere linjer */
+					overflow: hidden; /* Skjuler tekst, der går ud over containerens bredde */
+					text-overflow: ellipsis;
+
+					&:hover {
+						background-color: darken(#f5f5f5, 15%);
+					}
+
+					&.aktiv {
+						background-color: #5b6e87; /* Aktiv samtale farve */
+						color: #fff; /* Lys tekstfarve for aktive elementer */
+					}
+					.content {
+						display: flex;
+						align-items: center;
+						gap: 5px;
+					}
+				}
+			}
+		}
+	}
+}
+#promt-area {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	.chatgpt-output {
+		height: 100%;
+	}
+	.chat-user-input {
+		max-width: 700px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		border: 1px solid #dadada;
+		background-color: #f5f5f5;
+		padding: 10px;
+		flex-direction: row; /* Skift retning for dynamisk vækst */
+		max-height: 400px; /* Maksimal højde for hele boksen */
+		overflow: hidden; /* Forhindrer indhold i at gå udenfor containeren */
+		#autoResize {
+			width: 100%;
+			min-height: 50px; /* Mindste højde */
+			max-height: 260px; /* Maksimal højde for textarea */
+			resize: none; /* Tillad kun manuel vertikal resizing */
+			padding: 10px;
+			font-size: 1rem;
+			line-height: 1.5;
+			border: none;
+			outline: none;
+			overflow-y: auto; /* Tilføj vertikal scroll, hvis nødvendigt */
+			background-color: rgba(255, 99, 71, 0);
+
+			&::placeholder {
+				color: #999;
+			}
+		}
+
+		button {
+			border: none;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: background-color 0.3s ease;
+			background-color: rgba(255, 99, 71, 0);
+			padding: 0;
+
+			img {
+				width: 35px;
+				height: 35px;
+				&:hover {
+					filter: drop-shadow(0px 0px 5px lighten($hjv, 50%));
+				}
+			}
+		}
+	}
+}
