@@ -18,6 +18,7 @@ main {
 	width: 100%;
 	margin-top: clamp(5.188rem, 11vw, 6.625rem);
 	margin-bottom: 0.625rem;
+	margin-left: 0;
 	gap: 30px;
 	flex-direction: row;
 }
@@ -34,13 +35,13 @@ aside {
 		gap: 20px;
 	}
 	@include screen-size(tablet-big) {
-		display: none;
+		//display: none;
 	}
 	@include screen-size(tablet-small) {
-		display: none;
+		//display: none;
 	}
 	@include screen-size(mobile) {
-		display: none;
+		//display: none;
 	}
 }
 
@@ -184,7 +185,6 @@ footer {
 		display: flex;
 		justify-content: flex-start;
 		align-items: end;
-		height: 80px;
 		.btn-show-aside-on-mobile {
 			border: none;
 			background-color: rgba(255, 99, 71, 0);
@@ -240,7 +240,7 @@ footer {
 			width: 100%;
 			gap: 5px;
 			&::before {
-				content: url(/src/assets/icons/frame-118.svg);
+				content: url(/src/assets/icons/add.svg);
 				cursor: pointer;
 			}
 			&::after {

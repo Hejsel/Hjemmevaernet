@@ -160,6 +160,7 @@ main {
   width: 100%;
   margin-top: clamp(5.188rem, 11vw, 6.625rem);
   margin-bottom: 0.625rem;
+  margin-left: 0;
   gap: 30px;
   flex-direction: row;
 }
@@ -179,22 +180,6 @@ aside nav {
   flex-direction: column;
   gap: 20px;
 }
-@media (width >= 64rem) and (width <= 75rem) {
-  aside {
-    display: none;
-  }
-}
-@media (width >= 46.5rem) and (width <= 64rem) {
-  aside {
-    display: none;
-  }
-}
-@media (width <= 46.5rem) {
-  aside {
-    display: none;
-  }
-}
-
 /*
 footer {
 	background-color: $hjv;
@@ -322,7 +307,6 @@ footer {
   display: flex;
   justify-content: flex-start;
   align-items: end;
-  height: 80px;
 }
 #promt-area .container .btn-show-aside-on-mobile {
   border: none;
@@ -393,7 +377,7 @@ footer {
     gap: 5px;
   }
   #promt-area .mobile-container::before {
-    content: url(/src/assets/icons/frame-118.svg);
+    content: url(/src/assets/icons/add.svg);
     cursor: pointer;
   }
   #promt-area .mobile-container::after {
