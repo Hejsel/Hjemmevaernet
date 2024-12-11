@@ -15,11 +15,10 @@ body {
 }
 main {
 	flex: 1;
-	margin-top: clamp(5.188rem, 11vw, 8.625rem);
+	margin-top: clamp(5.188rem, 11vw, 6.625rem);
 	margin-bottom: 0.625rem;
 	gap: 30px;
 	flex-direction: row;
-	margin-right: 20px;
 }
 
 aside {
@@ -31,6 +30,15 @@ aside {
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
+	}
+	@include screen-size(tablet-big) {
+		display: none;
+	}
+	@include screen-size(tablet-small) {
+		display: none;
+	}
+	@include screen-size(mobile) {
+		display: none;
 	}
 }
 
@@ -169,54 +177,136 @@ footer {
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 20px;
-	.chatgpt-output {
-		height: 100%;
-	}
-	.chat-user-input {
-		max-width: 700px;
-		width: 100%;
+	.container {
+		width: 85%;
 		display: flex;
+		justify-content: flex-start;
 		align-items: end;
-		gap: 10px;
-		border: 1px solid #dadada;
-		background-color: #f5f5f5;
-		padding: 10px;
-		flex-direction: row; /* Skift retning for dynamisk vækst */
-		max-height: 400px; /* Maksimal højde for hele boksen */
-		overflow: hidden; /* Forhindrer indhold i at gå udenfor containeren */
-		#autoResize {
-			width: 100%;
-			min-height: 50px; /* Mindste højde */
-			max-height: 260px; /* Maksimal højde for textarea */
-			resize: none; /* Tillad kun manuel vertikal resizing */
-			padding: 10px;
-			font-size: 1rem;
-			line-height: 1.5;
+		height: 80px;
+		.btn-show-aside-on-mobile {
 			border: none;
-			outline: none;
-			overflow-y: auto; /* Tilføj vertikal scroll, hvis nødvendigt */
 			background-color: rgba(255, 99, 71, 0);
-
-			&::placeholder {
-				color: #999;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			&:hover {
+				background-color: darken(#fff, 8%);
+			}
+			img {
+				width: 25px;
+				height: 25px;
 			}
 		}
-
-		button {
-			border: none;
-			cursor: pointer;
+		@include screen-size(desktop) {
+			display: none;
+		}
+	}
+	.chatgpt-output {
+		@include flex-align(center, center);
+		height: 100%;
+		.container {
+			@include flex-container(column, 20px);
+			@include flex-align(center, center);
+			h1 {
+				color: $hjv;
+			}
+			.wrapper {
+				@include flex-container(row, 0.625rem);
+				@include flex-align;
+				@include flex-wrapper;
+				button {
+					border: none;
+					padding: 5px 20px;
+					border-radius: 100px;
+					background-color: #f5f5f5;
+					color: #999999;
+					cursor: pointer;
+					transition: background-color 0.3s ease;
+					&:hover {
+						background-color: darken(#f5f5f5, 5%);
+					}
+				}
+			}
+		}
+	}
+	.mobile-container {
+		width: 70%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include screen-size(mobile) {
+			width: 100%;
+			gap: 5px;
+			&::before {
+				content: url(/src/assets/icons/frame-118.svg);
+				cursor: pointer;
+			}
+			&::after {
+				content: url(/src/assets/icons/frame-118.svg);
+				cursor: pointer;
+			}
+		}
+		.chat-user-input {
+			max-width: 700px;
+			width: 100%;
 			display: flex;
-			align-items: center;
-			justify-content: center;
-			transition: background-color 0.3s ease;
-			background-color: rgba(255, 99, 71, 0);
-			padding: 0;
+			align-items: end;
+			gap: 10px;
+			border: 1px solid #dadada;
+			background-color: #f5f5f5;
+			padding: 10px;
+			flex-direction: row; /* Skift retning for dynamisk vækst */
+			max-height: 400px; /* Maksimal højde for hele boksen */
+			overflow: hidden; /* Forhindrer indhold i at gå udenfor containeren */
+			@include screen-size(tablet-big) {
+				margin: 0;
+			}
+			@include screen-size(tablet-small) {
+				margin: 0;
+			}
+			@include screen-size(mobile) {
+				margin: 0;
+			}
+			#autoResize {
+				@include body(
+					$fontSize-body-mobile,
+					$font-size-body,
+					$fluid-step-body,
+					$line-height-body,
+					$letter-spacing-body
+				);
+				word-spacing: -3px;
+				width: 100%;
+				min-height: 50px; /* Mindste højde */
+				max-height: 260px; /* Maksimal højde for textarea */
+				resize: none; /* Tillad kun manuel vertikal resizing */
+				padding: 10px;
+				border: none;
+				outline: none;
+				overflow-y: auto; /* Tilføj vertikal scroll, hvis nødvendigt */
+				background-color: rgba(255, 99, 71, 0);
 
-			img {
-				width: 35px;
-				height: 35px;
-				&:hover {
-					filter: drop-shadow(0px 0px 5px lighten($hjv, 50%));
+				&::placeholder {
+					color: #999;
+				}
+			}
+			button {
+				border: none;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: background-color 0.3s ease;
+				background-color: rgba(255, 99, 71, 0);
+				padding: 0;
+				img {
+					width: 35px;
+					height: 35px;
+					&:hover {
+						filter: drop-shadow(0px 0px 5px lighten($hjv, 50%));
+					}
+					@include screen-size(mobile) {
+						display: none;
+					}
 				}
 			}
 		}

@@ -128,6 +128,12 @@ main {
   color: #fff;
 }
 
+.body-text {
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+}
+
 .body-text-center {
   min-width: 17.5rem;
   text-align: center;
@@ -213,4 +219,4 @@ main {
   flex-direction: column;
 }
 
-/*# sourceMappingURL=landingpage.css.map */
+/*# sourceMappingURL=index.css.map */

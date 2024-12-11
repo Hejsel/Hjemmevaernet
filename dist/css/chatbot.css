@@ -129,6 +129,12 @@ main {
   color: #fff;
 }
 
+.body-text {
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+}
+
 .body-text-center {
   min-width: 17.5rem;
   text-align: center;
@@ -151,11 +157,10 @@ body {
 
 main {
   flex: 1;
-  margin-top: clamp(5.188rem, 11vw, 8.625rem);
+  margin-top: clamp(5.188rem, 11vw, 6.625rem);
   margin-bottom: 0.625rem;
   gap: 30px;
   flex-direction: row;
-  margin-right: 20px;
 }
 
 aside {
@@ -168,6 +173,21 @@ aside nav {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+@media (width >= 64rem) and (width <= 75rem) {
+  aside {
+    display: none;
+  }
+}
+@media (width >= 46.5rem) and (width <= 64rem) {
+  aside {
+    display: none;
+  }
+}
+@media (width <= 46.5rem) {
+  aside {
+    display: none;
+  }
 }
 
 /*
@@ -292,10 +312,90 @@ footer {
   align-items: center;
   margin-bottom: 20px;
 }
+#promt-area .container {
+  width: 85%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
+  height: 80px;
+}
+#promt-area .container .btn-show-aside-on-mobile {
+  border: none;
+  background-color: rgba(255, 99, 71, 0);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#promt-area .container .btn-show-aside-on-mobile:hover {
+  background-color: rgb(234.6, 234.6, 234.6);
+}
+#promt-area .container .btn-show-aside-on-mobile img {
+  width: 25px;
+  height: 25px;
+}
+@media (width >= 75rem) {
+  #promt-area .container {
+    display: none;
+  }
+}
 #promt-area .chatgpt-output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 }
-#promt-area .chat-user-input {
+#promt-area .chatgpt-output .container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#promt-area .chatgpt-output .container h1 {
+  color: #8d1b3d;
+}
+#promt-area .chatgpt-output .container .wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 0.625rem;
+  display: flex;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+#promt-area .chatgpt-output .container .wrapper button {
+  border: none;
+  padding: 5px 20px;
+  border-radius: 100px;
+  background-color: #f5f5f5;
+  color: #999999;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#promt-area .chatgpt-output .container .wrapper button:hover {
+  background-color: rgb(232.25, 232.25, 232.25);
+}
+#promt-area .mobile-container {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (width <= 46.5rem) {
+  #promt-area .mobile-container {
+    width: 100%;
+    gap: 5px;
+  }
+  #promt-area .mobile-container::before {
+    content: url(/src/assets/icons/frame-118.svg);
+    cursor: pointer;
+  }
+  #promt-area .mobile-container::after {
+    content: url(/src/assets/icons/frame-118.svg);
+    cursor: pointer;
+  }
+}
+#promt-area .mobile-container .chat-user-input {
   max-width: 700px;
   width: 100%;
   display: flex;
@@ -308,23 +408,40 @@ footer {
   max-height: 400px; /* Maksimal højde for hele boksen */
   overflow: hidden; /* Forhindrer indhold i at gå udenfor containeren */
 }
-#promt-area .chat-user-input #autoResize {
+@media (width >= 64rem) and (width <= 75rem) {
+  #promt-area .mobile-container .chat-user-input {
+    margin: 0;
+  }
+}
+@media (width >= 46.5rem) and (width <= 64rem) {
+  #promt-area .mobile-container .chat-user-input {
+    margin: 0;
+  }
+}
+@media (width <= 46.5rem) {
+  #promt-area .mobile-container .chat-user-input {
+    margin: 0;
+  }
+}
+#promt-area .mobile-container .chat-user-input #autoResize {
+  font-size: clamp(0.941rem, 2vw, 1rem);
+  line-height: 1.5;
+  letter-spacing: -0.031rem;
+  word-spacing: -3px;
   width: 100%;
   min-height: 50px; /* Mindste højde */
   max-height: 260px; /* Maksimal højde for textarea */
   resize: none; /* Tillad kun manuel vertikal resizing */
   padding: 10px;
-  font-size: 1rem;
-  line-height: 1.5;
   border: none;
   outline: none;
   overflow-y: auto; /* Tilføj vertikal scroll, hvis nødvendigt */
   background-color: rgba(255, 99, 71, 0);
 }
-#promt-area .chat-user-input #autoResize::placeholder {
+#promt-area .mobile-container .chat-user-input #autoResize::placeholder {
   color: #999;
 }
-#promt-area .chat-user-input button {
+#promt-area .mobile-container .chat-user-input button {
   border: none;
   cursor: pointer;
   display: flex;
@@ -334,12 +451,17 @@ footer {
   background-color: rgba(255, 99, 71, 0);
   padding: 0;
 }
-#promt-area .chat-user-input button img {
+#promt-area .mobile-container .chat-user-input button img {
   width: 35px;
   height: 35px;
 }
-#promt-area .chat-user-input button img:hover {
+#promt-area .mobile-container .chat-user-input button img:hover {
   filter: drop-shadow(0px 0px 5px rgb(241.0178571429, 181.9821428571, 199.5892857143));
+}
+@media (width <= 46.5rem) {
+  #promt-area .mobile-container .chat-user-input button img {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=chatbot.css.map */

@@ -83,12 +83,31 @@
 				</nav>
 			</aside>
 			<section id="promt-area">
-				<div class="chatgpt-output"></div>
-				<div class="chat-user-input">
-					<textarea id="autoResize" placeholder="Stil et spørgsmål..."></textarea>
-					<button type="submit" aria-label="Send besked">
-						<img src="/src/assets/icons/frame-118.svg" alt="Send ikon" />
+				<div class="container">
+					<button class="btn-show-aside-on-mobile">
+						<img src="/src/assets/icons/secondary-menu-bars.svg" alt="sekundær menu ikon." />
 					</button>
+				</div>
+				<div class="chatgpt-output">
+					<div class="container">
+						<h1 class="h2-style">Hvad kan jeg hjælpe med?</h1>
+						<p class="body-text-center">
+							Start ved at vælge et af emnerne nedenunder, eller stil et spørgsmål for at starte en chat.
+						</p>
+						<div class="wrapper">
+							<button class="body-text">Undervisning</button>
+							<button class="body-text">Bøger</button>
+							<button class="body-text">Powerpoint</button>
+						</div>
+					</div>
+				</div>
+				<div class="container mobile-container">
+					<div class="chat-user-input">
+						<textarea id="autoResize" placeholder="Stil et spørgsmål..."></textarea>
+						<button type="submit" aria-label="Send besked">
+							<img src="/src/assets/icons/frame-118.svg" alt="Send ikon" />
+						</button>
+					</div>
 				</div>
 			</section>
 		</main>

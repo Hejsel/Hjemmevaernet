@@ -1,3 +1,7 @@
+.body-text {
+	@include body($fontSize-body-mobile, $font-size-body, $fluid-step-body, $line-height-body, $letter-spacing-body);
+}
+
 // Centert p
 .body-text-center {
 	min-width: 17.5rem;
