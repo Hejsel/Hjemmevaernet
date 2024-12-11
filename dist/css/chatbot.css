@@ -150,13 +150,14 @@ main {
 
 html,
 body {
+  width: 100vw;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 main {
-  flex: 1;
+  width: 100%;
   margin-top: clamp(5.188rem, 11vw, 6.625rem);
   margin-bottom: 0.625rem;
   gap: 30px;
@@ -164,6 +165,10 @@ main {
 }
 
 aside {
+  margin-top: clamp(8.313rem, 5vw, 9.875rem);
+  margin-right: 0.625rem;
+  margin-bottom: 0;
+  margin-left: 0.625rem;
   width: 238px;
   background-color: #f5f5f5;
   border: #dadada;
