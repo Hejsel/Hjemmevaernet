@@ -1,65 +1,94 @@
-const http = require("http"),
-  port = 2323,
-  hostname = "127.0.0.1";
+const http = require("http");
+const port = 2323;
+const hostname = "127.0.0.1";
+const { OpenAI } = require("openai");
 const fs = require("fs");
 const path = require("path");
+const dotenv = require("dotenv");
+dotenv.config();
 
-const server = http.createServer();
-server.on("request", callback);
-server.listen(port, hostname, function () {
-  console.log("server is running");
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+const mimeTypes = {
+  ".html": "text/html",
+  ".js": "text/javascript",
+  ".css": "text/css",
+  ".json": "application/json",
+  ".png": "image/png",
+  ".jpg": "image/jpg",
+  ".gif": "image/gif",
+  ".svg": "image/svg+xml",
+  ".pdf": "application/pdf",
+};
+
+const server = http.createServer((req, res) => {
+  if (req.method === "POST" && req.url === "/api/chat") {
+    handleChatRequest(req, res);
+    console.log("chat function fired");
+  } else {
+    handleFileRequest(req, res);
+    console.log("file function fired");
+  }
 });
 
-function callback(req, res) {
-  // Mime types,
-  const mimeTypes = {
-    ".html": "text/html",
-    ".js": "text/javascript",
-    ".css": "text/css",
-    ".json": "application/json",
-    ".png": "image/png",
-    ".jpg": "image/jpg",
-    ".gif": "image/gif",
-    ".svg": "image/svg+xml",
-    ".pdf": "application/pdf",
-  };
+server.listen(port, hostname, () => {
+  console.log(`Server is running at http://${hostname}:${port}/`);
+});
 
-  // Standard filsti
+function handleFileRequest(req, res) {
   let filePath = "." + req.url;
-
-  // Hvis root-anmodning (/) skal servere index.html
   if (filePath === "./") {
     filePath = "./index.html";
   }
 
-  // Find filens udvidelse (fx .html)
   const extname = path.extname(filePath).toLowerCase();
-
-  // Find Content-Type fra MIME-typen
   const contentType = mimeTypes[extname] || "application/octet-stream";
 
-  console.log("Request received:", req.url);
-  console.log("Serving file:", filePath);
-  console.log("Content-Type:", contentType);
-
-  // Læs filen
   fs.readFile(filePath, (err, content) => {
     if (err) {
       if (err.code === "ENOENT") {
-        // Hvis filen ikke findes, returner 404
-        console.error("File not found:", filePath);
         res.writeHead(404, { "Content-Type": "text/html" });
         res.end("<h1>404 - File Not Found</h1>", "utf-8");
       } else {
-        // Hvis der opstår andre fejl
-        console.error("Server error:", err);
-        res.writeHead(500);
+        res.writeHead(500, { "Content-Type": "text/plain" });
         res.end(`Server Error: ${err.code}`);
       }
     } else {
-      // Returner filen med korrekt Content-Type
       res.writeHead(200, { "Content-Type": contentType });
       res.end(content, "utf-8");
     }
+  });
+}
+
+async function handleChatRequest(req, res) {
+  let data = "";
+
+  req.on("data", (chunk) => {
+    data += chunk.toString();
+  });
+
+  req.on("end", async () => {
+    try {
+      const { message } = JSON.parse(data);
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: message }],
+      });
+
+      const aiResponse = completion.choices[0].message.content;
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ response: aiResponse }));
+    } catch (err) {
+      console.error("OpenAI API Error:", err);
+      res.writeHead(500, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ error: "An error occurred." }));
+    }
+  });
+
+  req.on("error", (err) => {
+    console.error("Request Error:", err);
+    res.writeHead(400, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ error: "Bad Request" }));
   });
 }

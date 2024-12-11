@@ -15,5 +15,10 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"watch-scss": "sass --watch src/scss:dist/css"
+	},
+	"dependencies": {
+		"dotenv": "^16.4.7",
+		"openai": "^4.76.1",
+		"pdf-parse": "^1.1.1"
 	}
 }

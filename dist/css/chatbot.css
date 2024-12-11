@@ -166,6 +166,7 @@ main {
 }
 
 aside {
+  transform: translateX(-100%);
   margin-top: clamp(8.313rem, 5vw, 9.875rem);
   margin-right: 0.625rem;
   margin-bottom: 0;

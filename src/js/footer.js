@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 async function loadFooter() {
   try {
-    const response = await fetch("/Src/components/footer.html");
+    const response = await fetch("/src/components/footer.html");
     if (!response.ok) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
