@@ -208,6 +208,7 @@ footer {
 			@include flex-align(center, center);
 			h1 {
 				color: $hjv;
+				margin: 0;
 			}
 			.wrapper {
 				@include flex-container(row, 0.625rem);

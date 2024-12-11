@@ -353,6 +353,7 @@ footer {
 }
 #promt-area .chatgpt-output .container h1 {
   color: #8d1b3d;
+  margin: 0;
 }
 #promt-area .chatgpt-output .container .wrapper {
   display: flex;
