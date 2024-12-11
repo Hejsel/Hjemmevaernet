@@ -12,7 +12,7 @@
   </head>
   <body>
     <header id="header"></header>
-    <aside>
+    <aside id="aside">
       <nav>
         <form class="searchbar" role="search">
           <label for="searchbar" class="hidden">Søg:</label>
@@ -84,12 +84,12 @@
     <main>
       <section id="promt-area">
         <div class="container">
-          <button class="btn-show-aside-on-mobile">
+          <button id="asideBtn" class="btn-show-aside-on-mobile">
             <img src="/src/assets/icons/secondary-menu-bars.svg" alt="sekundær menu ikon." />
           </button>
         </div>
         <div class="chatgpt-output">
-          <div class="container">
+          <div class="container" id="chatgpt-introduction">
             <h1 class="h2-style">Hvad kan jeg hjælpe med?</h1>
             <p class="body-text-center">
               Start ved at vælge et af emnerne nedenunder, eller stil et spørgsmål for at starte en chat.
@@ -100,25 +100,26 @@
               <button class="body-text">Powerpoint</button>
             </div>
           </div>
+          <div id="chat-messages" class="chat-messages-container"></div>
         </div>
         <div class="container mobile-container">
           <div class="chat-user-input">
-            <textarea id="autoResize" placeholder="Stil et spørgsmål..."></textarea>
-            <button type="submit" aria-label="Send besked">
+            <textarea
+              id="chat-input"
+              class="autoResize"
+              type="text"
+              placeholder="Stil et spørgsmål..."
+            ></textarea>
+            <button id="send-button" type="button" aria-label="Send besked">
               <img src="/src/assets/icons/frame-118.svg" alt="Send ikon" />
             </button>
           </div>
         </div>
       </section>
-      <!-- Test area -->
-      <div id="chat-messages" class="chat-messages-container"></div>
-      <div class="chat-user-input">
-        <input id="chat-input" type="text" placeholder="Skriv din besked her..." />
-        <button id="send-button" type="button">Send</button>
       </div>
     </main>
     <script>
-      const textarea = document.getElementById("autoResize");
+      const textarea = document.getElementById("chat-input");
 
       textarea.addEventListener("input", () => {
         textarea.style.height = "auto"; // Nulstil højden for at måle indhold

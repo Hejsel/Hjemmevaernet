@@ -11,13 +11,13 @@
 html,
 body {
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   @include flex-container(row, null);
 }
 main {
   width: 100%;
-  margin-top: clamp(5.188rem, 11vw, 6.625rem);
-  margin-bottom: 0.625rem;
+  margin-top: clamp(8.313rem, 5vw, 9.875rem);
+  margin-bottom: 15px;
   margin-left: 0;
   gap: 30px;
   flex-direction: row;
@@ -25,26 +25,38 @@ main {
 
 aside {
   @include main-margin;
-  width: 238px;
+  margin-bottom: 15px; // Skal eventuelt ændre i 'main-margin is tedet for
+  margin-left: 15px;
+  max-width: 250px;
   background-color: #f5f5f5;
   border: #dadada;
   padding: 1.25rem;
+  transition: 0.5s;
   nav {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
   @include screen-size(tablet-big) {
-    //display: none;
+    position: absolute;
+    left: 0;
+    transform: translateX(calc(-100% - 0.625rem - 1.25rem));
   }
   @include screen-size(tablet-small) {
-    //display: none;
+    position: absolute;
+    left: 0;
+    transform: translateX(calc(-100% - 0.625rem - 1.25rem));
   }
   @include screen-size(mobile) {
-    //display: none;
+    position: absolute;
+    left: 0;
+    transform: translateX(calc(-100% - 0.625rem - 1.25rem));
   }
 }
-
+.toggle-visibility {
+  position: relative;
+  transform: translateX(0);
+}
 /*
 footer {
 	background-color: $hjv;
@@ -176,23 +188,24 @@ footer {
 #promt-area {
   width: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 15px;
   .container {
-    width: 85%;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
-    align-items: end;
+    margin-left: 10px;
     .btn-show-aside-on-mobile {
+      padding: 10px;
       border: none;
       background-color: rgba(255, 99, 71, 0);
       cursor: pointer;
       transition: background-color 0.3s ease;
-      &:hover {
-        background-color: darken(#fff, 8%);
-      }
+      // &:hover {
+      //   background-color: darken(#fff, 8%);
+      // }
       img {
         width: 25px;
         height: 25px;
@@ -203,8 +216,12 @@ footer {
     }
   }
   .chatgpt-output {
-    @include flex-align(center, center);
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    width: 75%;
+    max-width: 700px;
+    overflow-y: auto;
     .container {
       @include flex-container(column, 20px);
       @include flex-align(center, center);
@@ -230,30 +247,68 @@ footer {
         }
       }
     }
+    .hide {
+      display: none;
+    }
+    .chat-messages-container {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      overflow-y: auto;
+      .user-message {
+        max-width: 80%;
+        padding: 10px;
+        border-radius: 10px;
+        align-self: flex-end;
+        background-color: rgba(141, 27, 61, 0.1);
+        .text {
+          margin: 0;
+          font-size: 1rem;
+          color: #000;
+        }
+      }
+      .bot-message {
+        padding: 10px;
+        border-radius: 10px;
+        max-width: 80%;
+        align-self: flex-start;
+        background-color: rgba(0, 0, 0, 0.1);
+        .text {
+          margin: 0;
+          font-size: 1rem;
+          color: #000;
+        }
+      }
+    }
+    .show {
+      display: flex;
+    }
   }
+
   .mobile-container {
-    width: 70%;
+    width: 75%;
+    max-width: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
     @include screen-size(mobile) {
       width: 100%;
       gap: 5px;
-      &::before {
-        content: url(/src/assets/icons/add.svg);
-        cursor: pointer;
-      }
-      &::after {
-        content: url(/src/assets/icons/frame-118.svg);
-        cursor: pointer;
-      }
+      // &::before {
+      //   content: url(/src/assets/icons/add.svg);
+      //   cursor: pointer;
+      // }
+      // &::after {
+      //   content: url(/src/assets/icons/frame-118.svg);
+      //   cursor: pointer;
+      // }
     }
     .chat-user-input {
-      max-width: 700px;
       width: 100%;
       display: flex;
       align-items: end;
-      gap: 10px;
+      gap: 20px;
       border: 1px solid #dadada;
       background-color: #f5f5f5;
       padding: 10px;
@@ -269,7 +324,7 @@ footer {
       @include screen-size(mobile) {
         margin: 0;
       }
-      #autoResize {
+      .autoResize {
         @include body(
           $fontSize-body-mobile,
           $font-size-body,
@@ -287,6 +342,7 @@ footer {
         outline: none;
         overflow-y: auto; /* Tilføj vertikal scroll, hvis nødvendigt */
         background-color: rgba(255, 99, 71, 0);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
 
         &::placeholder {
           color: #999;

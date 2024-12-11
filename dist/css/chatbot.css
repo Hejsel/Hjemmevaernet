@@ -151,36 +151,65 @@ main {
 html,
 body {
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: row;
 }
 
 main {
   width: 100%;
-  margin-top: clamp(5.188rem, 11vw, 6.625rem);
-  margin-bottom: 0.625rem;
+  margin-top: clamp(8.313rem, 5vw, 9.875rem);
+  margin-bottom: 15px;
   margin-left: 0;
   gap: 30px;
   flex-direction: row;
 }
 
 aside {
-  transform: translateX(-100%);
   margin-top: clamp(8.313rem, 5vw, 9.875rem);
   margin-right: 0.625rem;
   margin-bottom: 0;
   margin-left: 0.625rem;
-  width: 238px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  max-width: 250px;
   background-color: #f5f5f5;
   border: #dadada;
   padding: 1.25rem;
+  transition: 0.5s;
 }
 aside nav {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+@media (width >= 64rem) and (width <= 75rem) {
+  aside {
+    position: absolute;
+    left: 0;
+    transform: translateX(calc(-100% - 0.625rem - 1.25rem));
+  }
+}
+@media (width >= 46.5rem) and (width <= 64rem) {
+  aside {
+    position: absolute;
+    left: 0;
+    transform: translateX(calc(-100% - 0.625rem - 1.25rem));
+  }
+}
+@media (width <= 46.5rem) {
+  aside {
+    position: absolute;
+    left: 0;
+    transform: translateX(calc(-100% - 0.625rem - 1.25rem));
+  }
+}
+
+.toggle-visibility {
+  position: relative;
+  transform: translateX(0);
+}
+
 /*
 footer {
 	background-color: $hjv;
@@ -298,25 +327,23 @@ footer {
 #promt-area {
   width: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 15px;
 }
 #promt-area .container {
-  width: 85%;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: end;
+  margin-left: 10px;
 }
 #promt-area .container .btn-show-aside-on-mobile {
+  padding: 10px;
   border: none;
   background-color: rgba(255, 99, 71, 0);
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-#promt-area .container .btn-show-aside-on-mobile:hover {
-  background-color: rgb(234.6, 234.6, 234.6);
 }
 #promt-area .container .btn-show-aside-on-mobile img {
   width: 25px;
@@ -330,8 +357,10 @@ footer {
 #promt-area .chatgpt-output {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  flex-grow: 1;
+  width: 75%;
+  max-width: 700px;
+  overflow-y: auto;
 }
 #promt-area .chatgpt-output .container {
   display: flex;
@@ -366,8 +395,46 @@ footer {
 #promt-area .chatgpt-output .container .wrapper button:hover {
   background-color: rgb(232.25, 232.25, 232.25);
 }
+#promt-area .chatgpt-output .hide {
+  display: none;
+}
+#promt-area .chatgpt-output .chat-messages-container {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  overflow-y: auto;
+}
+#promt-area .chatgpt-output .chat-messages-container .user-message {
+  max-width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  align-self: flex-end;
+  background-color: rgba(141, 27, 61, 0.1);
+}
+#promt-area .chatgpt-output .chat-messages-container .user-message .text {
+  margin: 0;
+  font-size: 1rem;
+  color: #000;
+}
+#promt-area .chatgpt-output .chat-messages-container .bot-message {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  align-self: flex-start;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#promt-area .chatgpt-output .chat-messages-container .bot-message .text {
+  margin: 0;
+  font-size: 1rem;
+  color: #000;
+}
+#promt-area .chatgpt-output .show {
+  display: flex;
+}
 #promt-area .mobile-container {
-  width: 70%;
+  width: 75%;
+  max-width: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -377,21 +444,12 @@ footer {
     width: 100%;
     gap: 5px;
   }
-  #promt-area .mobile-container::before {
-    content: url(/src/assets/icons/add.svg);
-    cursor: pointer;
-  }
-  #promt-area .mobile-container::after {
-    content: url(/src/assets/icons/frame-118.svg);
-    cursor: pointer;
-  }
 }
 #promt-area .mobile-container .chat-user-input {
-  max-width: 700px;
   width: 100%;
   display: flex;
   align-items: end;
-  gap: 10px;
+  gap: 20px;
   border: 1px solid #dadada;
   background-color: #f5f5f5;
   padding: 10px;
@@ -414,7 +472,7 @@ footer {
     margin: 0;
   }
 }
-#promt-area .mobile-container .chat-user-input #autoResize {
+#promt-area .mobile-container .chat-user-input .autoResize {
   font-size: clamp(0.941rem, 2vw, 1rem);
   line-height: 1.5;
   letter-spacing: -0.031rem;
@@ -428,8 +486,9 @@ footer {
   outline: none;
   overflow-y: auto; /* Tilføj vertikal scroll, hvis nødvendigt */
   background-color: rgba(255, 99, 71, 0);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#promt-area .mobile-container .chat-user-input #autoResize::placeholder {
+#promt-area .mobile-container .chat-user-input .autoResize::placeholder {
   color: #999;
 }
 #promt-area .mobile-container .chat-user-input button {

@@ -21,13 +21,12 @@ const mimeTypes = {
   ".pdf": "application/pdf",
 };
 
+// The function is called once for every http request that is made
 const server = http.createServer((req, res) => {
   if (req.method === "POST" && req.url === "/api/chat") {
     handleChatRequest(req, res);
-    console.log("chat function fired");
   } else {
     handleFileRequest(req, res);
-    console.log("file function fired");
   }
 });
 
@@ -40,10 +39,8 @@ function handleFileRequest(req, res) {
   if (filePath === "./") {
     filePath = "./index.html";
   }
-
   const extname = path.extname(filePath).toLowerCase();
   const contentType = mimeTypes[extname] || "application/octet-stream";
-
   fs.readFile(filePath, (err, content) => {
     if (err) {
       if (err.code === "ENOENT") {
@@ -61,21 +58,17 @@ function handleFileRequest(req, res) {
 }
 
 async function handleChatRequest(req, res) {
-  let data = "";
-
+  let body = "";
   req.on("data", (chunk) => {
-    data += chunk.toString();
+    body += chunk.toString();
   });
-
   req.on("end", async () => {
     try {
-      const { message } = JSON.parse(data);
-
+      const { message } = JSON.parse(body);
       const completion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [{ role: "user", content: message }],
       });
-
       const aiResponse = completion.choices[0].message.content;
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ response: aiResponse }));
@@ -85,7 +78,6 @@ async function handleChatRequest(req, res) {
       res.end(JSON.stringify({ error: "An error occurred." }));
     }
   });
-
   req.on("error", (err) => {
     console.error("Request Error:", err);
     res.writeHead(400, { "Content-Type": "application/json" });
