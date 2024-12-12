@@ -1,37 +1,37 @@
 // Step By Step Card
 .card-step-by-step {
-	@include flex-container(column, 1.25rem);
-	padding: $card-padding;
-	max-width: 24.625rem;
-	background-color: $fmn-10-procent;
-	img {
-		aspect-ratio: 16 / 9;
-		background-color: darkgrey;
-	}
-	.card-text-box {
-		@include flex-container(column, 0.625rem);
-		flex-direction: row;
-		b {
-			position: static;
-			top: 0;
-			color: $hjv;
-			@include body(
-				$fontSize-body-mobile,
-				$font-size-body,
-				$fluid-step-body,
-				$line-height-body,
-				$letter-spacing-body
-			);
-		}
-		p {
-			margin-top: 0;
-			@include body(
-				$fontSize-body-mobile,
-				$font-size-body,
-				$fluid-step-body,
-				$line-height-body,
-				$letter-spacing-body
-			);
-		}
-	}
+  @include flex-container(column, 1.25rem);
+  padding: $card-padding;
+  max-width: 24.625rem;
+  background-color: $fmn-10-procent;
+  img {
+    aspect-ratio: 16 / 9;
+    background-color: darkgrey;
+  }
+  .card-text-box {
+    @include flex-container(column, 0.625rem);
+    flex-direction: column;
+    b {
+      position: static;
+      top: 0;
+      color: $hjv;
+      @include body(
+        $fontSize-body-mobile,
+        $font-size-body,
+        $fluid-step-body,
+        $line-height-body,
+        $letter-spacing-body
+      );
+    }
+    p {
+      margin-top: 0;
+      @include body(
+        $fontSize-body-mobile,
+        $font-size-body,
+        $fluid-step-body,
+        $line-height-body,
+        $letter-spacing-body
+      );
+    }
+  }
 }

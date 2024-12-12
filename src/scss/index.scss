@@ -1,55 +1,57 @@
-@import 'variables';
-@import 'mixins';
-@import 'components/buttons';
-@import 'components/cards';
-@import 'components/full-bleed-out-of-container';
-@import 'components/globals';
-@import 'components/headings';
-@import 'components/list-boxes';
-@import 'components/paragraphs';
+@import "variables";
+@import "mixins";
+@import "components/buttons";
+@import "components/cards";
+@import "components/full-bleed-out-of-container";
+@import "components/globals";
+@import "components/headings";
+@import "components/list-boxes";
+@import "components/paragraphs";
 #hero {
-	@include flex-container(column, 3.125rem);
-	@include flex-align(center, center);
-	.container {
-		@include flex-container(column, 0.625rem);
-		@include flex-align(space-around, center);
-	}
-	img {
-		max-width: 52%;
-		min-width: 50.2rem;
-		width: 100%;
-		aspect-ratio: 1.618 / 1;
-		background-color: darkgray;
-		@include screen-size(tablet-small) {
-			max-width: 80%;
-			min-width: 46.875rem;
-		}
-		@include screen-size(mobile) {
-			max-width: 100%;
-			min-width: 0;
-		}
-	}
+  @include flex-container(column, 3.125rem);
+  @include flex-align(center, center);
+  .container {
+    @include flex-container(column, 0.625rem);
+    @include flex-align(space-around, center);
+  }
+  img {
+    max-width: 52%;
+    min-width: 50.2rem;
+    width: 100%;
+    // aspect-ratio: 1.618 / 1;
+    background-color: darkgray;
+    border-radius: 20px;
+    box-shadow: 0 29px 52px rgba(0, 0, 0, 0.4), 0 25px 16px rgba(0, 0, 0, 0.2);
+    @include screen-size(tablet-small) {
+      max-width: 80%;
+      min-width: 46.875rem;
+    }
+    @include screen-size(mobile) {
+      max-width: 100%;
+      min-width: 0;
+    }
+  }
 }
 #get-it-going {
-	@include flex-container(column, 3.125rem);
-	@include flex-align(center, center);
-	.container {
-		@include flex-align(center, center);
-		flex-direction: column;
-	}
-	#step-by-step-list {
-		@include flex-wrapper;
-		@include flex-align(center, center);
-		gap: 0.625rem;
-	}
+  @include flex-container(column, 3.125rem);
+  @include flex-align(center, center);
+  .container {
+    @include flex-align(center, center);
+    flex-direction: column;
+  }
+  #step-by-step-list {
+    @include flex-wrapper;
+    @include flex-align(center, center);
+    gap: 0.625rem;
+  }
 }
 #examples {
-	@include flex-container(column, 3.125rem);
-	@include flex-align(center, center);
-	padding: 3.125rem 0 5rem;
-	background-color: $fmn-10-procent;
-	.container {
-		@include flex-align(center, center);
-		flex-direction: column;
-	}
+  @include flex-container(column, 3.125rem);
+  @include flex-align(center, center);
+  padding: 3.125rem 0 5rem;
+  background-color: $fmn-10-procent;
+  .container {
+    @include flex-align(center, center);
+    flex-direction: column;
+  }
 }
